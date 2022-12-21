@@ -1,0 +1,8 @@
+<body>
+    <input #input (keyup.enter)="selectPoke(input.value)" type="number" />
+    <p *ngIf="pokeSelected"> {{pokeSelected?.name}} </p>
+    <p *ngIf="!pokeSelected">Not found</p>
+    <router-outlet></router-outlet>
+
+
+</body>
