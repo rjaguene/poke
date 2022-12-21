@@ -24,24 +24,24 @@ jobs:
             ${{ runner.os }}-node-
       - name: NPM Install
         run: npm install
-- name: NPM Install Angular
-  run: npm install -g @angular/cli > /dev/null
-- name: Lint
-  run: npm run lint
-- name: Format
-  run: npm run format
-- name: NPM build Angular Production
-  run: npm run build:prod
-- name: Test
-  run: npm run test:ci
-- name: Test coverage
-  run: npm run test:ci:cov
+      - name: NPM Install Angular
+        run: npm install -g @angular/cli > /dev/null
+      - name: Lint
+        run: npm run lint
+      - name: Format
+        run: npm run format
+      - name: NPM build Angular Production
+        run: npm run build:prod
+      - name: Test
+        run: npm run test:ci
+      - name: Test coverage
+        run: npm run test:ci:cov
 
-- name: Deploy to my EC2 instance
-        uses: easingthemes/ssh-deploy@v2.1.5
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
-          SOURCE: "dist/poke/"
-          REMOTE_HOST: "15.236.72.124"
-          REMOTE_USER: "ubuntu"
-          TARGET: "/var/www/html/poke/dist/poke"
+      - name: Deploy to my EC2 instance
+              uses: easingthemes/ssh-deploy@v2.1.5
+              with:
+                SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
+                SOURCE: "dist/poke/"
+                REMOTE_HOST: "15.236.72.124"
+                REMOTE_USER: "ubuntu"
+                TARGET: "/var/www/html/poke/dist/poke"
