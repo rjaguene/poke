@@ -34,11 +34,11 @@ jobs:
       - name: NPM build Angular Production
         run: npm run build:prod
 
-      - name: Test
-        run: npm run test:ci
+   #   - name: Test
+   #     run: npm run test:ci
 
-      - name: Test coverage
-        run: npm run test:ci:cov
+   #   - name: Test coverage
+   #     run: npm run test:ci:cov
               
       - name: Deploy to my EC2 instance
         uses: easingthemes/ssh-deploy@v2.1.5
