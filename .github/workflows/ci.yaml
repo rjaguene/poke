@@ -45,6 +45,6 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
           SOURCE: "dist/poke/"
-          REMOTE_HOST: "15.236.72.124"
+          REMOTE_HOST: "13.39.69.42"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html/poke/dist/poke"
