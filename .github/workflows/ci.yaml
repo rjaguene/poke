@@ -34,6 +34,8 @@ jobs:
       - name: NPM build Angular Production
         run: npm run build:prod
 
+      - name: Copy repository to server with rsync
+        run: rsync -avz --chown=github:www-data --chmod=Dg=rwx,Fg=rwx ./ ubuntu@ec2-15-188-131-214.eu-west-3.compute.amazonaws.com:/home/www/my_project/
    #   - name: Test
    #     run: npm run test:ci
 
