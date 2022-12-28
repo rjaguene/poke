@@ -34,6 +34,7 @@ jobs:
       - name: NPM build Angular Production
         run: npm run build:prod
 
+    
    #   - name: Test
    #     run: npm run test:ci
 
