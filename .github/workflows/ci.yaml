@@ -46,9 +46,8 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
-          ARGS: "-azhv"
           SOURCE: "dist/poke/"
-          REMOTE_HOST: "15.188.13.193"
+          REMOTE_HOST: "13.36.81.184"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html/poke/dist/poke"
           
