@@ -40,7 +40,8 @@ jobs:
 
    #   - name: Test coverage
    #     run: npm run test:ci:cov
-              
+
+             
       - name: Deploy to my EC2 instance
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
