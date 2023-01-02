@@ -24,8 +24,10 @@ export class DetailPokeComponent implements OnInit {
   ngOnInit(): void {
 
     const pokeId: string | null = this.route.snapshot.paramMap.get('id');
+    console.log(pokeId)
     if (pokeId) {
-      this.pokemonService.getPokemonById(+pokeId).subscribe(poke => this.poke = poke)
+      this.pokemonService.getPokemonById(pokeId).subscribe(poke => this.poke = poke)
+      console.log(this.poke)
     }else {
       this.poke = undefined;
     }
@@ -38,13 +40,17 @@ export class DetailPokeComponent implements OnInit {
     this.router.navigate(['edit/pokemons', pokemon.id])
   }
 
-  deletePokemon(pokemon: Pokemon){
-    this.pokemonService.deletePokemonById(+pokemon.id)
-      .subscribe(() => this.goBack())
+  deletePokemon(pokemon: Pokemon): void {
+    if (pokemon.id) {
+      this.pokemonService.deletePokemonById(pokemon.id).subscribe(() => {
+        // Redirigez l'utilisateur vers la liste des pokemons après avoir supprimé le pokemon
+        this.router.navigate(['/pokemons']);
+      });
+    }
   }
-
+  
   addPokemon(pokemon: Pokemon){
     this.pokemonService.addPokemon(pokemon)
-    .subscribe(() =>this.router.navigate(['pokemons', pokemon.id]))
+    .subscribe(() =>this.router.navigate(['/pokemons', pokemon.id]))
   }
 }

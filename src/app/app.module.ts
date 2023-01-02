@@ -19,7 +19,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
+   // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
     PokemonModule,
     AppRoutingModule
    

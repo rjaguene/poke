@@ -2,17 +2,19 @@
 
 
 <div class="card" *ngFor="let poke of pokeList">
-    <a href="pokemons/{{poke.id}}">
+    <a href="/pokemons/{{poke.id}}">
         <div class="header">
             <p>#{{poke.id}}</p>
         </div>
         <img [src]="poke.picture">
     </a>
     <p> {{poke.name}} </p>
-    <p>{{poke.created | date | uppercase}}</p>
+    <p>{{poke.hp }}</p>
+    <p>{{poke.cp }}</p>
 
     <span *ngFor="let type of poke.types" class="{{type | pokeTypeColor }}">
         {{type}}
     </span>
 </div>
 <a routerLink="/pokemons/add">Add Pokemon</a>
+

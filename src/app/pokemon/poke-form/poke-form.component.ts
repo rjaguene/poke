@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 
@@ -11,6 +12,8 @@ import { PokemonService } from '../pokemon.service';
 
 export class PokeFormComponent implements OnInit {
   @Input() pokemon: Pokemon;
+  pokemons: Observable<Pokemon[]>;
+
   types: string[];
   isAddForm: boolean;
   // pokemonTypeList
@@ -42,13 +45,18 @@ export class PokeFormComponent implements OnInit {
   onSubmit() {
     if (this.isAddForm) {
       this.pokemonService.addPokemon(this.pokemon)
-      .subscribe((pokemon: Pokemon) => this.router.navigate(['/pokemons', pokemon.id]));
+        .subscribe((pokemon: Pokemon) => this.router.navigate(['/pokemons', pokemon.id]));
+      this.router.navigate(['/pokemons',this.pokemon.id])
+     // window.location.reload();
     } else {
       this.pokemonService.updatePokemon(this.pokemon)
-        .subscribe(() => 
-          this.router.navigate(['/pokemons', this.pokemon.id]));
+        .subscribe(() => this.router.navigate(['/pokemons', this.pokemon.id]));
     }
   }
+
+
+
+
 
   isTypesValid(type: string): boolean {
     if (this.pokemon.types.length == 1 && this.hasType(type)) {
