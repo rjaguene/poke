@@ -19,7 +19,7 @@ export class PokemonService {
   }
 
   getPokemonById(id: string): Observable<Pokemon | undefined> {
-    return this.http.get<Pokemon>(`http://localhost:8080/api/${id}`).pipe(
+    return this.http.get<Pokemon>(`http://13.37.202.161:8080/api/${id}`).pipe(
       tap((res) => this.log(res)),
       catchError((err) => this.handleErr(err, undefined))
     );
@@ -32,7 +32,7 @@ export class PokemonService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    return this.http.put('http://localhost:8080/api/save', pokemon, httpOptions).pipe(
+    return this.http.put('http://13.37.202.161:8080/api/save', pokemon, httpOptions).pipe(
       tap((res) => this.log(res)),
       catchError((err) => this.handleErr(err, null))
     );
@@ -40,7 +40,7 @@ export class PokemonService {
 
   
   deletePokemonById(pokemonId: number): Observable<Pokemon | undefined> {
-    return this.http.delete<Pokemon>(`http://localhost:8080/api/${pokemonId}`).pipe(
+    return this.http.delete<Pokemon>(`http://13.37.202.161:8080/api/${pokemonId}`).pipe(
       tap((res) => this.log(res)),
       catchError((err) => this.handleErr(err, undefined))
     );
@@ -62,7 +62,7 @@ export class PokemonService {
     };
   
   
-    return this.http.post<Pokemon>('http://localhost:8080/api/save', pokemon, httpOptions).pipe(
+    return this.http.post<Pokemon>('http://13.37.202.161:8080/api/save', pokemon, httpOptions).pipe(
     tap((pokemon: Pokemon) => this.log(`added pokemon w/ id=${pokemon.id}`)),
     catchError((err) => this.handleErr(err, undefined))
     );

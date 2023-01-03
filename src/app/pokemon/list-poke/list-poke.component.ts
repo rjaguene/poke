@@ -21,5 +21,8 @@ export class ListPokeComponent implements OnInit {
       this.pokemonService.getPokemonList().subscribe(pokeList => this.pokeList = pokeList)
     }
 
+    ngOnDestroy(){
+     // this.pokemonService.getPokemonList().unSubscribe()
+    }
 }
 

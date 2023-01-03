@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-e
+
 
 mongoose.connection.on('connected', () => {
     console.log('connected!!!!!!!!')
@@ -13,6 +13,16 @@ const Poke = new mongoose.Schema({
   id: Number,
   picture: String
 });
+
+
+const Poke = new mongoose.Schema({
+  name: String,
+  hp: String,
+  cp: String,
+  id: Poke.id,
+  picture: String
+});
+
 
 const poke = mongoose.model("Poke", Poke);
 
