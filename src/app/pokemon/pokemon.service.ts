@@ -12,7 +12,7 @@ export class PokemonService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getPokemonList(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>('http://13.37.202.161:8080/api').pipe(
+    return this.http.get<Pokemon[]>('http://172.31.37.96:8080/api').pipe(
       tap((res) => this.log(res)),
       catchError((err) => this.handleErr(err, []))
     );

@@ -36,9 +36,7 @@ app.get('/api', (req, res) => {
 app.get('/api/:id', (req, res) => {
   const id = req.params.id;
   const objet = nftData.findOne({ id: id });
- // console.log(objet)
   if (objet) {
-
     objet.exec((error, result) => {
       if (error) {
         res.status(500).send(error);
@@ -48,7 +46,6 @@ app.get('/api/:id', (req, res) => {
     });
   }
 });
-
 
 app.delete('/api/:id', (req, res) => {
   const id = req.params.id;
